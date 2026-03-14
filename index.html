@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Surat Untukmu ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(135deg,#ff9a9e,#fad0c4);
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+/* slide */
+
+.slide{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:40px;
+}
+
+.active{
+display:flex;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4b6e;
+font-size:16px;
+cursor:pointer;
+margin-top:25px;
+}
+
+img{
+width:230px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+margin-bottom:20px;
+}
+
+/* hati jatuh */
+
+.heart{
+position:fixed;
+top:-10px;
+font-size:24px;
+animation: fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform: translateY(110vh);
+}
+}
+
+/* emoji goyang */
+
+.emoji{
+font-size:30px;
+animation: goyang 1.5s infinite;
+}
+
+@keyframes goyang{
+0%{transform:rotate(-10deg);}
+50%{transform:rotate(10deg);}
+100%{transform:rotate(-10deg);}
+}
+
+/* bintang */
+
+.star{
+position:fixed;
+color:white;
+animation: blink 1s infinite;
+}
+
+@keyframes blink{
+0%{opacity:1;}
+50%{opacity:0;}
+100%{opacity:1;}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MUSIK -->
+<iframe width="0" height="0"
+src="https://www.youtube.com/embed/0p2Y6X7gE3M?autoplay=1&loop=1"
+frameborder="0"></iframe>
+
+<!-- SLIDE 1 -->
+<div class="slide active">
+
+<img src="foto.jpg">
+
+<h1>Sebuah Surat Untukmu</h1>
+
+<p>
+Sebelum membaca surat ini...<br>
+tarik napas dulu ya 🥺
+</p>
+
+<p class="emoji">💌🥺❤️</p>
+
+<button onclick="next()">Buka Surat</button>
+
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+
+<h1>Hai Kamu</h1>
+
+<p>
+Aku tidak tahu harus mulai dari mana.
+Tapi ada sesuatu yang ingin aku sampaikan.
+Hal kecil yang selama ini
+aku simpan diam-diam.
+</p>
+
+<p class="emoji">🥺❤️✨</p>
+
+<button onclick="next()">Lanjut</button>
+
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+
+<h1>Tentang Kamu</h1>
+
+<p>
+Sejak aku mengenalmu,
+hari terasa berbeda.
+Seperti ada rumah
+di dalam senyummu.
+</p>
+
+<p class="emoji">❤️🥰</p>
+
+<button onclick="next()">Lanjut</button>
+
+</div>
+
+<!-- SLIDE 4 -->
+<div class="slide">
+
+<h1>Terima Kasih</h1>
+
+<p>
+Jika suatu hari kamu membaca ini,
+aku hanya ingin kamu tahu satu hal.
+Terima kasih sudah hadir
+di semesta kecilku.
+</p>
+
+<p class="emoji">🥺❤️</p>
+
+</div>
+
+<script>
+
+/* slide */
+
+let slides=document.querySelectorAll(".slide");
+let index=0;
+
+function next(){
+slides[index].classList.remove("active");
+index++;
+slides[index].classList.add("active");
+}
+
+/* hati jatuh */
+
+function hearts(){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
+
+}
+
+setInterval(hearts,300);
+
+/* bintang */
+
+function stars(){
+
+let star=document.createElement("div");
+
+star.className="star";
+star.innerHTML="✨";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(star);
+
+setTimeout(()=>{
+star.remove();
+},2000);
+
+}
+
+setInterval(stars,500);
+
+</script>
+
+</body>
+</html>
